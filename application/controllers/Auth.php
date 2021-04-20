@@ -87,10 +87,12 @@ class Auth extends CI_Controller
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
 			'is_unique' => 'This email has registered!'
 		]);
+
 		$this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[5]|matches[password2]', [
 			'matches' => 'Password dont match!',
 			'min_length' => 'Password too short!'
 		]);
+
 		$this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[5]|matches[password1]');
 
 		if ($this->form_validation->run() == FALSE) {
